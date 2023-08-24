@@ -39,7 +39,8 @@ jobs:
       uses: hashicorp/setup-terraform@v2
 
     - name: Terraform Init
-      uses: hashicorp/terraform-github-actions/init@v0.4.0
-      env:
-        TF_ACTION_WORKING_DIR: 'Terraform'
+      id: init
+      run: terraform init
+      working-directory: ./Terraform # Use your environment folder
+      shell: bash
    
