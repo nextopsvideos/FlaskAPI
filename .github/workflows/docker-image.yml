@@ -34,16 +34,15 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDS }}
-
-    - name: 'Change working directory'
-      run: cd Terraform
         
     - name: 'Terraform Execution'
       uses: hashicorp/setup-terraform@v2
     
     - name: Terraform fmt
       id: fmt
-      run: terraform fmt -check
+      run: |
+          cd Terraform
+          terraform fmt -check
       continue-on-error: true
     
     - name: Terraform Init
