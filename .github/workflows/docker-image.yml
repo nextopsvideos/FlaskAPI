@@ -25,5 +25,7 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
           
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag flask-app:$(date +%s)
+      run: |
+          docker build . --file Dockerfile --tag flask-app:$(date +%s)
+          docker push nextopsacr03.azurecr.io/flask-app:$(date +%s)
     
