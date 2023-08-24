@@ -41,7 +41,7 @@ jobs:
     - name: Terraform fmt
       id: fmt
       run: |
-          cd Terraform
+          cd /home/runner/work/FlaskAPI/FlaskAPI/Terraform
           terraform fmt -check
       continue-on-error: true
     
