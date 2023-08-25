@@ -22,13 +22,13 @@ resource "azurerm_resource_group" "nextopsrg" {
   location = "East US"
 }
 
-resource "azurerm_container_registry" "nextopsacr" {
-  name                     = "nextopsacr10"
-  resource_group_name      = azurerm_resource_group.nextopsrg.name
-  location                 = azurerm_resource_group.nextopsrg.location
-  sku                      = "Standard"
-  admin_enabled            = true
-}
+#resource "azurerm_container_registry" "nextopsacr" {
+#  name                     = "nextopsacr10"
+#  resource_group_name      = azurerm_resource_group.nextopsrg.name
+#  location                 = azurerm_resource_group.nextopsrg.location
+#  sku                      = "Standard"
+#  admin_enabled            = true
+#}
 
 resource "azurerm_virtual_network" "nextopsvnet" {
   name                = "nextopsvnet01"
@@ -62,7 +62,7 @@ resource "azurerm_container_group" "nextopsaci" {
 
   container {
     name   = "container-one"
-    image  = "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+    image  = "nextopsacr03.azurecr.io/flask-app:latest"
     cpu    = "0.5"
     memory = "1.5"
 
