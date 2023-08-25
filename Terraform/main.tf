@@ -8,13 +8,13 @@ terraform {
 }
 
 #https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret
-#provider "azurerm" {
-#  features {} 
+provider "azurerm" {
+  features {} 
 #  client_id       = "f61baffe-d1f5-4c01-b603-27083426549f"
 #  client_secret   = "EV~8Q~MXDeUvv-WYvCf3gNUyk3ERY6WvEDZE4aqW"
 #  tenant_id       = "68033575-d28e-41d3-9fa8-32299b023e7d"
 #  subscription_id = "5ef4e654-5b34-4650-9755-1d4297258e0c"
-#}
+}
 
 
 resource "azurerm_resource_group" "nextopsrg" {
