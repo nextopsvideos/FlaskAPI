@@ -50,4 +50,10 @@ jobs:
         terraform plan      
       working-directory: ./Terraform # Use your environment folder
       shell: bash
-   
+
+    - name: Terraform Apply
+      run: terraform apply --auto-approve
+      working-directory: ./Terraform # Use your environment folder
+      shell: bash
+
+    
