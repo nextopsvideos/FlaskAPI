@@ -60,6 +60,12 @@ resource "azurerm_container_group" "nextopsaci" {
   os_type                     = "Linux"
   subnet_ids                  = [azurerm_subnet.subnet01.id]
 
+  image_registry_credential {
+    username = "nextopsacr03"
+    password = "w8qoglimJueFFVp2fwjd+XM2SU7DC+AQW9DuMn8iHy+ACRBzbTLM"
+    server   = "nextopsacr03.azurecr.io"
+  }
+
   container {
     name   = "container-one"
     image  = "nextopsacr03.azurecr.io/flask-app"
