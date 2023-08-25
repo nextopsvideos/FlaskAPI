@@ -43,4 +43,11 @@ jobs:
       run: terraform init
       working-directory: ./Terraform # Use your environment folder
       shell: bash
+
+    - name: Terraform Plan
+      id: plan
+      run: |
+        terraform plan      
+      working-directory: ./Terraform # Use your environment folder
+      shell: bash
    
