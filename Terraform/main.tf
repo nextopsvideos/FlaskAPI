@@ -73,7 +73,7 @@ resource "azurerm_container_group" "nextopsaci" {
     memory = "1.5"
 
     ports {
-      port     = 80
+      port     = 5000
       protocol = "TCP"
     }
   }
@@ -102,7 +102,7 @@ resource "azurerm_lb" "nextopsalb" {
 resource "azurerm_lb_probe" "probe01" {
   loadbalancer_id = azurerm_lb.nextopsalb.id
   name            = "probe01"
-  port            = 80
+  port            = 5000
 }
 
 resource "azurerm_lb_backend_address_pool" "bep01" {
@@ -124,7 +124,7 @@ resource "azurerm_lb_rule" "rule01" {
   name                           = "LBRule"
   protocol                       = "Tcp"
   frontend_port                  = 80
-  backend_port                   = 80
+  backend_port                   = 5000
   frontend_ip_configuration_name = "PublicIPAddress"
   backend_address_pool_ids = [azurerm_lb_backend_address_pool.bep01.id]
   probe_id = azurerm_lb_probe.probe01.id
