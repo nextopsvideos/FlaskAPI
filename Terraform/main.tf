@@ -62,7 +62,7 @@ resource "azurerm_container_group" "nextopsaci" {
 
   container {
     name   = "container-one"
-    image  = "nextopsacr03.azurecr.io/flask-app:latest"
+    image  = "nextopsacr03.azurecr.io/flask-app"
     cpu    = "0.5"
     memory = "1.5"
 
